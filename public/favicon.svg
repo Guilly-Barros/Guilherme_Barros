@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">GB Dev Logo</title>
+  <desc id="desc">Monogram GB with DEV wordmark in yellow and white.</desc>
+  <defs>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4d34a" stop-opacity="0.32" />
+      <stop offset="100%" stop-color="#f2b800" stop-opacity="0.14" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" fill="url(#glow)" opacity="0.18" rx="52" />
+  <style>
+    .brand { fill: #f2c200; font-family: 'Inter', 'Poppins', 'Arial Black', sans-serif; font-weight: 800; }
+    .word { fill: #ffffff; font-family: 'Inter', 'Poppins', 'Arial Black', sans-serif; font-weight: 700; letter-spacing: 3px; }
+  </style>
+  <text x="50%" y="56%" text-anchor="middle" font-size="170" class="brand" dominant-baseline="middle">GB</text>
+  <text x="50%" y="84%" text-anchor="middle" font-size="44" class="word" dominant-baseline="middle">DEV</text>
+</svg>
