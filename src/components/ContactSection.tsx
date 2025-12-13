@@ -36,11 +36,11 @@ const ContactSection = () => {
     setIsSubmitting(false);
   };
 
-  // Configure your links here
-  const whatsappNumber = '5500000000000'; // Replace with your number
-  const email = 'seuemail@exemplo.com';
-  const githubUrl = 'https://github.com/seuusuario';
-  const linkedinUrl = 'https://linkedin.com/in/seuusuario';
+  // Dados oficiais de contato
+  const whatsappNumber = '5562999875544';
+  const email = 'gbparros0201@gmail.com';
+  const githubUrl = 'https://github.com/Guilly-Barros';
+  const linkedinUrl = 'https://www.linkedin.com/in/guilly-barros-passos/';
 
   return (
     <section id="contato" ref={ref} className="py-24 bg-secondary/30">

@@ -1,20 +1,21 @@
 import { ExternalLink, Github } from 'lucide-react';
+import { cartorioAlvarengaImage, equityOilImage } from '@/assets';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const projects = [
   {
-    title: 'E-commerce Dashboard',
-    description: 'Painel administrativo completo para gestão de vendas e produtos.',
+    title: 'Cartório Alvarenga',
+    description: 'Landing page institucional moderna para o Cartório Alvarenga.',
     tags: ['React', 'TypeScript', 'Tailwind'],
-    image: null,
+    image: cartorioAlvarengaImage,
     github: '#',
     live: '#',
   },
   {
-    title: 'App de Finanças',
-    description: 'Aplicação para controle financeiro pessoal com gráficos interativos.',
-    tags: ['React', 'Chart.js', 'Node.js'],
-    image: null,
+    title: 'EquityOil',
+    description: 'Plataforma para apresentação institucional da EquityOil.',
+    tags: ['React', 'Tailwind', 'Vite'],
+    image: equityOilImage,
     github: '#',
     live: '#',
   },
@@ -82,9 +83,18 @@ const ProjectsSection = () => {
             >
               {/* Image */}
               <div className="relative h-48 -mx-6 -mt-6 mb-5 bg-gradient-to-br from-primary/5 to-accent/5 overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
-                  <span className="text-sm">Imagem do projeto</span>
-                </div>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={`Projeto ${project.title}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center text-muted-foreground/50">
+                    <span className="text-sm">Imagem do projeto</span>
+                  </div>
+                )}
                 
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-primary/90 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
