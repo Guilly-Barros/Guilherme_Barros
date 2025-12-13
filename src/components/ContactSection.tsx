@@ -25,16 +25,33 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulating form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const subject = encodeURIComponent(`Contato de ${formData.name}`);
+      const bodyLines = [
+        `Nome: ${formData.name}`,
+        `E-mail: ${formData.email}`,
+        '',
+        formData.message,
+      ];
+      const body = encodeURIComponent(bodyLines.join('\n'));
 
-    toast({
-      title: 'Mensagem enviada!',
-      description: 'Entrarei em contato em breve.',
-    });
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+      toast({
+        title: 'Abrindo seu cliente de e-mail...',
+        description: 'Caso não abra automaticamente, verifique o bloqueio de pop-ups.',
+      });
+
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      toast({
+        title: 'Não foi possível preparar o e-mail',
+        description: 'Tente novamente ou envie diretamente para gbparros0201@gmail.com.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Dados oficiais de contato
