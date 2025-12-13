@@ -1,5 +1,6 @@
 import { ArrowRight, Eye } from 'lucide-react';
-import FloatingShapes from './FloatingShapes';
+import { perfilGuilhermeImage } from '@/assets';
+import DigitalNetworkBackground from './DigitalNetworkBackground';
 
 const HeroSection = () => {
   return (
@@ -8,7 +9,7 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
       style={{ background: 'var(--gradient-hero)' }}
     >
-      <FloatingShapes />
+      <DigitalNetworkBackground />
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -28,7 +29,7 @@ const HeroSection = () => {
             >
               Olá, eu sou{' '}
               <span className="font-brush text-primary text-5xl sm:text-6xl lg:text-7xl">
-                DevName
+                Guilly Barros
               </span>
               <br />
               <span className="text-foreground/90">Desenvolvedor Web</span>
@@ -93,11 +94,13 @@ const HeroSection = () => {
               
               {/* Photo container */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/20 shadow-lg">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                  <span className="text-muted-foreground text-center px-8">
-                    Sua foto aqui
-                  </span>
-                </div>
+                <img
+                  src={perfilGuilhermeImage}
+                  alt="Foto de Guilly Barros"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 pointer-events-none" />
               </div>
 
               {/* Floating badges */}
