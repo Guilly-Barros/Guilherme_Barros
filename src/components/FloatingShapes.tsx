@@ -1,37 +1,58 @@
 const FloatingShapes = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Shape 1 - Top right */}
-      <div 
-        className="floating-shape animate-float w-64 h-64 -top-20 -right-20"
-        style={{ background: 'linear-gradient(135deg, hsl(210 100% 45% / 0.15) 0%, hsl(200 100% 50% / 0.1) 100%)' }}
+      <div
+        className="floating-shape animate-float w-72 h-72 -top-24 -right-8"
+        style={{ background: 'linear-gradient(135deg, hsl(48 96% 60% / 0.16) 0%, hsl(48 96% 53% / 0.1) 100%)' }}
       />
-      
-      {/* Shape 2 - Bottom left */}
-      <div 
-        className="floating-shape animate-float-delayed w-96 h-96 -bottom-40 -left-40"
-        style={{ background: 'linear-gradient(135deg, hsl(200 100% 50% / 0.1) 0%, hsl(210 100% 45% / 0.15) 100%)' }}
+
+      <div
+        className="floating-shape animate-float-delayed w-96 h-96 -bottom-32 -left-24"
+        style={{ background: 'linear-gradient(135deg, hsl(48 96% 62% / 0.14) 0%, hsl(48 96% 53% / 0.08) 100%)' }}
       />
-      
-      {/* Shape 3 - Center right */}
-      <div 
-        className="floating-shape animate-float-slow w-48 h-48 top-1/3 right-10"
-        style={{ background: 'linear-gradient(135deg, hsl(210 100% 45% / 0.1) 0%, hsl(200 100% 50% / 0.05) 100%)' }}
+
+      <div
+        className="floating-shape animate-float-slow w-60 h-60 top-1/3 right-10"
+        style={{ background: 'radial-gradient(circle at 30% 30%, hsl(48 96% 65% / 0.18), transparent 60%)' }}
       />
-      
-      {/* Small decorative circles */}
-      <div className="absolute top-1/4 left-1/4 w-4 h-4 rounded-full bg-primary/20 animate-pulse-glow" />
-      <div className="absolute top-2/3 right-1/3 w-3 h-3 rounded-full bg-accent/20 animate-pulse-glow" style={{ animationDelay: '1s' }} />
-      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 rounded-full bg-primary/30 animate-pulse-glow" style={{ animationDelay: '2s' }} />
-      
-      {/* Tech grid lines */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+
+      <svg
+        className="absolute inset-0 w-full h-full opacity-[0.14]"
+        viewBox="0 0 1440 900"
+        role="presentation"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <defs>
-          <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary" />
-          </pattern>
+          <linearGradient id="network-stroke" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="hsl(48 96% 70%)" stopOpacity="0.55" />
+            <stop offset="100%" stopColor="hsl(48 96% 53%)" stopOpacity="0.45" />
+          </linearGradient>
+          <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="hsl(48 96% 70%)" stopOpacity="0.9" />
+            <stop offset="100%" stopColor="hsl(48 96% 53%)" stopOpacity="0.15" />
+          </radialGradient>
         </defs>
-        <rect width="100%" height="100%" fill="url(#grid)" />
+
+        <g stroke="url(#network-stroke)" strokeWidth="1.5" strokeLinecap="round" fill="none">
+          <path d="M80 640 L260 520 L420 600 L620 480 L820 560 L1040 460 L1260 560" />
+          <path d="M140 360 L320 300 L520 360 L660 260 L880 320 L1100 260 L1300 340" strokeDasharray="6 10" />
+          <path d="M220 820 L420 700 L640 760 L860 660 L1080 720 L1260 640" />
+          <path d="M180 200 L360 140 L560 200 L760 140 L960 220 L1180 160 L1360 220" strokeDasharray="8 12" />
+          <path d="M300 520 L420 380 L600 420 L760 320 L940 380 L1120 340" />
+        </g>
+
+        <g fill="url(#node-glow)">
+          {[{ x: 260, y: 520 }, { x: 420, y: 600 }, { x: 620, y: 480 }, { x: 820, y: 560 }, { x: 1040, y: 460 }, { x: 1260, y: 560 }, { x: 320, y: 300 }, { x: 660, y: 260 }, { x: 880, y: 320 }, { x: 1100, y: 260 }, { x: 420, y: 700 }, { x: 640, y: 760 }, { x: 860, y: 660 }, { x: 1080, y: 720 }].map((node) => (
+            <circle key={`${node.x}-${node.y}`} cx={node.x} cy={node.y} r="8" />
+          ))}
+        </g>
+
+        <g fill="hsl(48 96% 70% / 0.45)">
+          {[{ x: 120, y: 620 }, { x: 340, y: 420 }, { x: 540, y: 540 }, { x: 740, y: 430 }, { x: 980, y: 520 }, { x: 1220, y: 420 }, { x: 300, y: 180 }, { x: 520, y: 180 }, { x: 960, y: 180 }, { x: 1180, y: 220 }].map((dot) => (
+            <circle key={`${dot.x}-${dot.y}`} cx={dot.x} cy={dot.y} r="3" />
+          ))}
+        </g>
       </svg>
     </div>
   );
