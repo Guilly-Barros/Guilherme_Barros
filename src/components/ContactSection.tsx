@@ -4,6 +4,8 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useToast } from '@/hooks/use-toast';
 import DigitalNetworkBackground from './DigitalNetworkBackground';
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mqarngyg";
+
 const ContactSection = () => {
   const { ref, isVisible } = useScrollReveal<HTMLElement>();
   const { toast } = useToast();
@@ -26,28 +28,51 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        _subject: `Contato de ${formData.name}`, // opcional (ajuda no assunto)
+      };
+
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(errText || "Falha ao enviar formulário.");
+      }
+
+      toast({
+        title: "Mensagem enviada com sucesso",
+        description: "Recebi sua mensagem e retornarei o mais breve possível.",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      // Fallback: abre mailto caso o Formspree falhe
       const subject = encodeURIComponent(`Contato de ${formData.name}`);
       const bodyLines = [
         `Nome: ${formData.name}`,
         `E-mail: ${formData.email}`,
-        '',
+        "",
         formData.message,
       ];
-      const body = encodeURIComponent(bodyLines.join('\n'));
+      const body = encodeURIComponent(bodyLines.join("\n"));
 
       window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
 
       toast({
-        title: 'Abrindo seu cliente de e-mail...',
-        description: 'Caso não abra automaticamente, verifique o bloqueio de pop-ups.',
-      });
-
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      toast({
-        title: 'Não foi possível preparar o e-mail',
-        description: 'Tente novamente ou envie diretamente para gbparros0201@gmail.com.',
-        variant: 'destructive',
+        title: "Não foi possível enviar automaticamente",
+        description:
+          "Abrindo seu cliente de e-mail como alternativa. Se preferir, envie direto para gbparros0201@gmail.com.",
+        variant: "destructive",
       });
     } finally {
       setIsSubmitting(false);
@@ -77,7 +102,7 @@ const ContactSection = () => {
                 <span className="font-brush text-primary text-4xl sm:text-5xl">do papel?</span>
               </h2>
               <p className="section-subtitle mt-4">
-                Estou pronto para transformar sua ideia em realidade. Entre em contato e vamos 
+                Estou pronto para transformar sua ideia em realidade. Entre em contato e vamos
                 conversar sobre seu projeto.
               </p>
             </div>
@@ -139,6 +164,14 @@ const ContactSection = () => {
           {/* Right Column - Form */}
           <div className={`${isVisible ? 'animate-slide-in-right' : 'opacity-0'}`}>
             <form onSubmit={handleSubmit} className="card-hover space-y-6">
+              {/* Honeypot anti-spam (campo invisível) */}
+              <input
+                type="text"
+                name="_gotcha"
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
               <h3 className="text-xl font-semibold text-foreground mb-2">
                 Envie uma mensagem
               </h3>
