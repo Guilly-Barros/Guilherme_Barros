@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Send, MessageCircle, Mail, Github, Linkedin } from 'lucide-react';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useToast } from '@/hooks/use-toast';
+import DigitalNetworkBackground from './DigitalNetworkBackground';
 
 const ContactSection = () => {
   const { ref, isVisible } = useScrollReveal<HTMLElement>();
@@ -43,8 +44,10 @@ const ContactSection = () => {
   const linkedinUrl = 'https://www.linkedin.com/in/guilly-barros-passos/';
 
   return (
-    <section id="contato" ref={ref} className="py-24 bg-secondary/30">
-      <div className="section-container">
+    <section id="contato" ref={ref} className="relative py-24 bg-secondary/30 overflow-hidden">
+      <DigitalNetworkBackground className="opacity-70" />
+
+      <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
           {/* Left Column */}
           <div className={`space-y-8 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>

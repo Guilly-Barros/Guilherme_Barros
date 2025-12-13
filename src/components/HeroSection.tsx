@@ -1,6 +1,6 @@
 import { ArrowRight, Eye } from 'lucide-react';
 import { perfilGuilhermeImage } from '@/assets';
-import FloatingShapes from './FloatingShapes';
+import DigitalNetworkBackground from './DigitalNetworkBackground';
 
 const HeroSection = () => {
   return (
@@ -9,7 +9,7 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center pt-20 overflow-hidden"
       style={{ background: 'var(--gradient-hero)' }}
     >
-      <FloatingShapes />
+      <DigitalNetworkBackground />
 
       <div className="section-container relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

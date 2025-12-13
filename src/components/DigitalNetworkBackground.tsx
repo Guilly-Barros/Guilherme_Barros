@@ -1,6 +1,6 @@
-const FloatingShapes = () => {
+const DigitalNetworkBackground = ({ className = '' }: { className?: string }) => {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`} aria-hidden>
       <div
         className="floating-shape animate-float w-72 h-72 -top-24 -right-8"
         style={{ background: 'linear-gradient(135deg, hsl(48 96% 60% / 0.16) 0%, hsl(48 96% 53% / 0.1) 100%)' }}
@@ -16,25 +16,19 @@ const FloatingShapes = () => {
         style={{ background: 'radial-gradient(circle at 30% 30%, hsl(48 96% 65% / 0.18), transparent 60%)' }}
       />
 
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.14]"
-        viewBox="0 0 1440 900"
-        role="presentation"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg className="absolute inset-0 w-full h-full opacity-[0.14]" viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" role="presentation">
         <defs>
-          <linearGradient id="network-stroke" x1="0" y1="0" x2="1" y2="1">
+          <linearGradient id="digital-network-stroke" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="hsl(48 96% 70%)" stopOpacity="0.55" />
             <stop offset="100%" stopColor="hsl(48 96% 53%)" stopOpacity="0.45" />
           </linearGradient>
-          <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+          <radialGradient id="digital-network-node" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="hsl(48 96% 70%)" stopOpacity="0.9" />
             <stop offset="100%" stopColor="hsl(48 96% 53%)" stopOpacity="0.15" />
           </radialGradient>
         </defs>
 
-        <g stroke="url(#network-stroke)" strokeWidth="1.5" strokeLinecap="round" fill="none">
+        <g stroke="url(#digital-network-stroke)" strokeWidth="1.5" strokeLinecap="round" fill="none">
           <path d="M80 640 L260 520 L420 600 L620 480 L820 560 L1040 460 L1260 560" />
           <path d="M140 360 L320 300 L520 360 L660 260 L880 320 L1100 260 L1300 340" strokeDasharray="6 10" />
           <path d="M220 820 L420 700 L640 760 L860 660 L1080 720 L1260 640" />
@@ -42,7 +36,7 @@ const FloatingShapes = () => {
           <path d="M300 520 L420 380 L600 420 L760 320 L940 380 L1120 340" />
         </g>
 
-        <g fill="url(#node-glow)">
+        <g fill="url(#digital-network-node)">
           {[{ x: 260, y: 520 }, { x: 420, y: 600 }, { x: 620, y: 480 }, { x: 820, y: 560 }, { x: 1040, y: 460 }, { x: 1260, y: 560 }, { x: 320, y: 300 }, { x: 660, y: 260 }, { x: 880, y: 320 }, { x: 1100, y: 260 }, { x: 420, y: 700 }, { x: 640, y: 760 }, { x: 860, y: 660 }, { x: 1080, y: 720 }].map((node) => (
             <circle key={`${node.x}-${node.y}`} cx={node.x} cy={node.y} r="8" />
           ))}
@@ -58,4 +52,4 @@ const FloatingShapes = () => {
   );
 };
 
-export default FloatingShapes;
+export default DigitalNetworkBackground;
