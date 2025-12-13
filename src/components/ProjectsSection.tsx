@@ -97,20 +97,22 @@ const ProjectsSection = () => {
                 )}
                 
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-primary/90 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div
+                  className="absolute inset-0 bg-[rgba(0,0,0,0.1)] group-hover:bg-[rgba(0,0,0,0.15)] flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                >
                   <a
                     href={project.github}
                     className="w-12 h-12 rounded-full bg-background/20 flex items-center justify-center hover:bg-background/30 transition-colors"
                     aria-label="Ver código no GitHub"
                   >
-                    <Github className="w-5 h-5 text-primary-foreground" />
+                    <Github className="w-5 h-5 text-primary stroke-[1.5]" />
                   </a>
                   <a
                     href={project.live}
                     className="w-12 h-12 rounded-full bg-background/20 flex items-center justify-center hover:bg-background/30 transition-colors"
                     aria-label="Ver projeto ao vivo"
                   >
-                    <ExternalLink className="w-5 h-5 text-primary-foreground" />
+                    <ExternalLink className="w-5 h-5 text-primary stroke-[1.5]" />
                   </a>
                 </div>
               </div>
