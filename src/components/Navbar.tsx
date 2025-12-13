@@ -37,7 +37,7 @@ const Navbar = () => {
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-2 group">
           <span className="font-brush text-3xl sm:text-4xl text-primary font-bold tracking-wide transition-transform duration-300 group-hover:scale-105">
-            DevName
+            Guilly Barros
           </span>
         </a>
 
