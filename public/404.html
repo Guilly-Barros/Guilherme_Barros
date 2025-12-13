@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecionando…</title>
+    <script>
+      (function redirectToBase() {
+        var basePath = "/Guilherme_Barros/";
+        var search = window.location.search || "";
+        var hash = window.location.hash || "";
+        window.location.replace("".concat(basePath).concat(search).concat(hash));
+      })();
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/Guilherme_Barros/" />
+    </noscript>
+  </head>
+  <body>
+    <p>Redirecionando para a página inicial…</p>
+  </body>
+</html>

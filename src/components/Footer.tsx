@@ -1,5 +1,3 @@
-import { Heart } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -9,14 +7,12 @@ const Footer = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Logo */}
           <a href="#inicio" className="font-brush text-2xl text-primary font-bold">
-            DevName
+            Guilly Barros
           </a>
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {currentYear} • Feito com{' '}
-            <Heart className="w-4 h-4 text-primary fill-primary" /> por{' '}
-            <span className="font-brush text-lg text-primary">DevName</span>
+            © {currentYear} • Feito Guilherme Barros.
           </p>
 
           {/* Back to top */}
