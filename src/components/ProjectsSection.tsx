@@ -105,14 +105,14 @@ const ProjectsSection = () => {
                     className="w-12 h-12 rounded-full bg-background/20 flex items-center justify-center hover:bg-background/30 transition-colors"
                     aria-label="Ver código no GitHub"
                   >
-                    <Github className="w-5 h-5 text-primary-foreground" />
+                    <Github className="w-5 h-5 text-primary stroke-[1.5]" />
                   </a>
                   <a
                     href={project.live}
                     className="w-12 h-12 rounded-full bg-background/20 flex items-center justify-center hover:bg-background/30 transition-colors"
                     aria-label="Ver projeto ao vivo"
                   >
-                    <ExternalLink className="w-5 h-5 text-primary-foreground" />
+                    <ExternalLink className="w-5 h-5 text-primary stroke-[1.5]" />
                   </a>
                 </div>
               </div>
