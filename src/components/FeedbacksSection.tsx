@@ -3,27 +3,27 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 const feedbacks = [
   {
-    name: 'João Silva',
+    name: 'Reginaldo Castro',
     role: 'Empreendedor',
-    content: 'Trabalho impecável! O site ficou muito além das minhas expectativas. Profissional atencioso e comprometido com a qualidade.',
+    content: 'Trabalho impecável! O site ficou muito além das minhas expectativas. Ajudou muito na apresentação do meu negócio de vendas.',
     rating: 5,
   },
   {
-    name: 'Maria Santos',
+    name: 'Laryssa Podologa',
     role: 'Proprietária de Clínica',
-    content: 'Minha clínica ganhou uma presença digital incrível. Os clientes elogiam muito o site e a facilidade de navegação.',
+    content: 'Ajudou muito na questão de todo a organização interna da clínica, desde o agendamento ate o atendimento do cliente. O sistema é fácil de usar e me poupou muito tempo.',
     rating: 5,
   },
   {
     name: 'Pedro Oliveira',
     role: 'Restaurante',
-    content: 'Excelente comunicação durante todo o projeto. Entregou no prazo e com qualidade superior. Super recomendo!',
+    content: 'Mesmo com sua essencia tecnologica, o sistema é super intuitivo e fácil de usar. Me ajudou a organizar os pedidos e melhorar a experiência dos meus clientes.',
     rating: 5,
   },
   {
-    name: 'Ana Costa',
-    role: 'Consultora',
-    content: 'Profissional extremamente dedicado. Transformou minha visão em realidade digital de forma surpreendente.',
+    name: 'Thiago Nonato',
+    role: 'Servidor Público',
+    content: 'Profissional extremamente dedicado. Transformou completamente a forma como gerenciamos nossos processos internos, tornando tudo mais eficiente com suas automações personalizadas.',
     rating: 5,
   },
 ];
