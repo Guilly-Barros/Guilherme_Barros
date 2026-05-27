@@ -1,6 +1,13 @@
 import { ExternalLink, Github } from 'lucide-react';
-import { cartorioAlvarengaImage, equityOilImage } from '@/assets';
+import { 
+  cartorioAlvarengaImage, 
+  equityOilImage,
+  gestaoClinicoImage,
+  gestaoOficinaImage,
+  gestaoCadastroMassaImage
+} from '@/assets';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useToast } from '@/hooks/use-toast';
 
 const projects = [
   {
@@ -9,7 +16,7 @@ const projects = [
     tags: ['React', 'TypeScript', 'Tailwind'],
     image: cartorioAlvarengaImage,
     github: '#',
-    live: '#',
+    live: 'https://cartorioalvarenga.com.br/',
   },
   {
     title: 'EquityOil',
@@ -17,44 +24,59 @@ const projects = [
     tags: ['React', 'Tailwind', 'Vite'],
     image: equityOilImage,
     github: '#',
-    live: '#',
+    live: 'https://equityoil.com.br/',
   },
   {
-    title: 'Landing Page Clínica',
-    description: 'Site institucional moderno para clínica de estética.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    image: null,
+    title: 'Sistema de Gestão Clínica',
+    description: 'Sistema completo para gestão de clínicas.',
+    tags: ['React', 'Node.js', 'MongoDB'],
+    image: gestaoClinicoImage,
     github: '#',
     live: '#',
+    customMessage: 'Este sistema já foi desenvolvido, porém não está disponível para acesso.',
   },
   {
-    title: 'Sistema de Agendamentos',
-    description: 'Plataforma para gerenciamento de agenda e clientes.',
+    title: 'Sistema de Gestão Mecânica',
+    description: 'Plataforma para gerenciamento de oficinas mecânicas.',
     tags: ['React', 'Supabase', 'Tailwind'],
-    image: null,
+    image: gestaoOficinaImage,
     github: '#',
     live: '#',
+    customMessage: 'Este sistema já foi desenvolvido, porém não está disponível para acesso.',
   },
   {
-    title: 'Portfolio Fotógrafo',
+    title: 'Bot de Cadastros em Massa',
     description: 'Site elegante para exibição de trabalhos fotográficos.',
     tags: ['Next.js', 'Framer Motion'],
-    image: null,
+    image: gestaoCadastroMassaImage,
     github: '#',
     live: '#',
+    customMessage: 'Este sistema já foi desenvolvido, porém ele está rodando em um servidor dedicado do Tribunal de Justiça do Estado de Goiás.',
   },
   {
-    title: 'API REST',
+    title: 'Portal de Automação TJGO',
     description: 'Backend robusto para aplicação de delivery.',
     tags: ['Node.js', 'Express', 'MongoDB'],
     image: null,
     github: '#',
     live: '#',
+    customMessage: 'Este sistema já foi desenvolvido, porém ele está rodando em um servidor dedicado do Tribunal de Justiça do Estado de Goiás.',
   },
 ];
 
 const ProjectsSection = () => {
   const { ref, isVisible } = useScrollReveal<HTMLElement>();
+  const { toast } = useToast();
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, project: typeof projects[number]) => {
+    if (project.customMessage) {
+      e.preventDefault();
+      toast({
+        title: project.title,
+        description: project.customMessage,
+      });
+    }
+  };
 
   return (
     <section id="projetos" ref={ref} className="py-24 bg-secondary/30">
@@ -102,6 +124,7 @@ const ProjectsSection = () => {
                 >
                   <a
                     href={project.github}
+                    onClick={(e) => handleLinkClick(e, project)}
                     className="w-12 h-12 rounded-full bg-background/20 flex items-center justify-center hover:bg-background/30 transition-colors"
                     aria-label="Ver código no GitHub"
                   >
@@ -109,6 +132,7 @@ const ProjectsSection = () => {
                   </a>
                   <a
                     href={project.live}
+                    onClick={(e) => handleLinkClick(e, project)}
                     className="w-12 h-12 rounded-full bg-background/20 flex items-center justify-center hover:bg-background/30 transition-colors"
                     aria-label="Ver projeto ao vivo"
                   >
