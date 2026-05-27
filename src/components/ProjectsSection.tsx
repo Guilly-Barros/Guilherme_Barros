@@ -4,7 +4,8 @@ import {
   equityOilImage,
   gestaoClinicoImage,
   gestaoOficinaImage,
-  gestaoCadastroMassaImage
+  gestaoCadastroMassaImage,
+  gestaoPortalAutomacaoImage
 } from '@/assets';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useToast } from '@/hooks/use-toast';
@@ -57,7 +58,7 @@ const projects = [
     title: 'Portal de Automação TJGO',
     description: 'Backend robusto para aplicação de delivery.',
     tags: ['Node.js', 'Express', 'MongoDB'],
-    image: null,
+    image: gestaoPortalAutomacaoImage,
     github: '#',
     live: '#',
     customMessage: 'Este sistema já foi desenvolvido, porém ele está rodando em um servidor dedicado do Tribunal de Justiça do Estado de Goiás.',

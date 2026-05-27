@@ -5,3 +5,4 @@ export { default as gestaoCadastroMassaImage } from './gestao_cadastro_massa.png
 export { default as gestaoClinicoImage } from './gestao_clinica.png';
 export { default as gestaoEspetinhoImage } from './gestao_espetinho.png';
 export { default as gestaoOficinaImage } from './gestao_oficina.png';
+export { default as gestaoPortalAutomacaoImage } from './gestao_portalautomacao.png';
