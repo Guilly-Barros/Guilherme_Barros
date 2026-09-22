@@ -73,7 +73,7 @@ const HeroSection = () => {
                 <div className="text-sm text-muted-foreground">Anos de experiência</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary">15+</div>
+                <div className="text-3xl font-bold text-primary">10+</div>
                 <div className="text-sm text-muted-foreground">Projetos entregues</div>
               </div>
               <div>
@@ -104,6 +104,12 @@ const HeroSection = () => {
               </div>
 
               {/* Floating badges */}
+              <div 
+                className="absolute top-8 -left-4 sm:-left-6 px-4 py-2 bg-background rounded-xl shadow-lg border border-border animate-float"
+                style={{ animationDelay: '1s' }}
+              >
+                <span className="text-sm font-medium text-foreground">Python</span>
+              </div>
               <div className="absolute -top-4 -right-4 px-4 py-2 bg-background rounded-xl shadow-lg border border-border animate-float">
                 <span className="text-sm font-medium text-foreground">React</span>
               </div>
